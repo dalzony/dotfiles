@@ -34,7 +34,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(hl-paren-colors (quote ("color-196" "color-220" "color-201" "color-46"))))
+ '(hl-paren-colors (quote ("color-196" "color-220" "color-201" "color-46")))
+ '(safe-local-variable-values
+   (quote
+    ((cider-cljs-lein-repl . "(do (dev) (go) (cljs-repl))")
+     (cider-refresh-after-fn . "reloaded.repl/resume")
+     (cider-refresh-before-fn . "reloaded.repl/suspend")))))
 
 ;; rainbow-delimiters for lisp
 (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
@@ -83,6 +88,10 @@
 (set-display-table-slot standard-display-table 'vertical-border (make-glyph-code ?│))
 
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(vertical-border ((t (:foreground "brightblack")))))
 
 (recentf-mode t)

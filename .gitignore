@@ -6,3 +6,6 @@ recentf
 smex-items
 self-installs
 .DS_Store
+emacs.d/eshell/
+lein/.lein-env
+lein/repl-history

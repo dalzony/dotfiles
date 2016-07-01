@@ -2,11 +2,45 @@
 (require 'cask "/usr/local/Cellar/cask/0.7.4/cask.el")
 (cask-initialize)
 
-;; tabbar
-;; (load-file "~/.emacs.d/tabbar.el")
+(add-to-list 'load-path "~/.emacs.d/lisp")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
-;; hide menu bar
+(load-theme 'zenburn t)
+
+(powerline-default-theme)
+
+(setq inhibit-startup-message t)
+(blink-cursor-mode 0)
 (menu-bar-mode -1)
+(tool-bar-mode -1)
+;;(scroll-bar-mode -1)
+(setq visible-bell nil)
+(setq ring-bell-function 'ignore)
+(setq mac-option-modifier 'meta)
+(setq mac-command-modifier 'super)
+(setq require-final-newline t)
+(setq show-trailing-whitespace t)
+
+;; start with fullscreen
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(initial-frame-alist (quote ((fullscreen . maximized))))
+ '(safe-local-variable-values
+   (quote
+    ((haskell-process-use-ghci . t)
+     (haskell-indent-spaces . 4)))))
+
+;; left right margin color
+(set-face-attribute 'fringe nil :background "#3F3F3F")
+
+(set-default-font "Monaco 13")
+
+;; flat style mode-line
+(set-face-attribute 'mode-line nil :box nil)
+(set-face-attribute 'mode-line-inactive nil :box nil)
 
 ;; smex
 (smex-initialize)
@@ -28,29 +62,12 @@
 ;; projectile
 (projectile-global-mode)
 
-;; highlight-parentheses-mode color
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(hl-paren-colors (quote ("color-196" "color-220" "color-201" "color-46")))
- '(safe-local-variable-values
-   (quote
-    ((cider-cljs-lein-repl . "(do (dev) (go) (cljs-repl))")
-     (cider-refresh-after-fn . "reloaded.repl/resume")
-     (cider-refresh-before-fn . "reloaded.repl/suspend")))))
-
-;; rainbow-delimiters for lisp
+;; rainbow-delimiters
 (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'emacs-lisp-mode-hook #'highlight-parentheses-mode)
 
 ;; flx-ido
 (flx-ido-mode 1)
-
-;; theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'zenburn t)
 
 ;; idle-highlight-mode
 (idle-highlight-mode 1)
@@ -58,6 +75,11 @@
 ;; show line number
 (global-linum-mode 1)
 (setq linum-format "%3d ")
+
+(set-cursor-color "#6F6F6F")
+
+;; virtical line color
+(set-face-attribute 'vertical-border nil :foreground "#494949")
 
 ;; auto reload file
 (global-auto-revert-mode 1)
@@ -85,15 +107,6 @@
 ;; pbcopy for osx
 (turn-on-pbcopy)
 
-(set-display-table-slot standard-display-table 'vertical-border (make-glyph-code ?│))
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(vertical-border ((t (:foreground "brightblack")))))
-
 (recentf-mode t)
 
 ;; clojure-mode
@@ -118,11 +131,18 @@
 (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'clojure-mode-hook #'highlight-parentheses-mode)
 
-(eval-after-load 'flycheck '(flycheck-clojure-setup))
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-;; (eval-after-load 'flycheck
-;;   '(setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages))
+(eval-after-load 'flycheck '(flycheck-clojure-setup))
+(add-hook 'after-init-hook #'global-flycheck-mode)
+(eval-after-load 'flycheck
+  '(setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages))
+
+(require 'flycheck-tip)
+(flycheck-tip-use-timer 'verbose)
+
+(add-hook 'cider-mode-hook
+	  (lambda () (setq next-error-function #'flycheck-next-error-function)))
 
 (defun clj-refactor-setup ()
   (clj-refactor-mode 1)
@@ -133,3 +153,37 @@
 
 ;; disable magic requires
 (setq cljr-magic-requires nil)
+(setq cljr-favor-prefix-notation nil)
+
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
+
+(eval-after-load "sgml-mode"
+  '(progn
+     (require 'tagedit)
+     (tagedit-add-paredit-like-keybindings)
+     (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))))
+
+;; npm install -g jshint
+(add-hook 'js-mode-hook (lambda () (flycheck-mode t)))
+
+(setq js-indent-level 2)
+
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+(global-prettify-symbols-mode 1)
+
+(setq enable-local-variables :safe)
+
+(setq clojure-indent-style :always-indent)
+
+;; javascript
+
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+

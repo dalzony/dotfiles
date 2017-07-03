@@ -9,3 +9,6 @@ self-installs
 emacs.d/eshell/
 lein/.lein-env
 lein/repl-history
+
+emacs.d.cask.zip
+emacs.d/elpa/

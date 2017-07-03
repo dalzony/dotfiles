@@ -232,14 +232,15 @@
 	     ())
 
 (use-package cider
-	     :ensure t
-	     :config
-	     (add-hook 'cider-mode-hook #'eldoc-mode)
-	     (add-hook 'cider-repl-mode-hook #'eldoc-mode)
-	     (add-hook 'cider-repl-mode-hook #'paredit-mode)
-	     (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
-	     (setq clojure-indent-style :always-indent)
-	     (setq cider-known-endpoints '(("luminus" "127.0.0.1" "7000"))))
+  :ensure t
+  :config
+  (add-hook 'cider-mode-hook #'eldoc-mode)
+  (add-hook 'cider-repl-mode-hook #'eldoc-mode)
+  (add-hook 'cider-repl-mode-hook #'paredit-mode)
+  (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
+  (setq cider-auto-select-error-buffer nil)
+  (setq clojure-indent-style :always-indent)
+  (setq cider-known-endpoints '(("luminus" "127.0.0.1" "7000"))))
 
 (use-package ido
 	     :ensure t

@@ -1,6 +1,8 @@
 # dotfiles
 
 ```
-ln -s dotfiles/emacs.d .emacs.d
-ln -s dotfiles/lein .lein
+ln -s dotfiles/spacemacs .spacemacs
+ln -s dotfiles/zshrc .zshrc
+
+
 ```

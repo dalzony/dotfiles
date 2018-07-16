@@ -7,6 +7,9 @@ ln -s dotfiles/zshrc .zshrc
 
 ```
 
+## spacemacs
+
+- emacs에서 `SPC` 대신 `M-m`
 
 ## zsh - theme(hyperzsh)
 

@@ -23,6 +23,14 @@ Set ZSH_THEME="current_theme" to ZSH_THEME="hyperzsh"
 
 ```
 
+## font
+
+- https://github.com/adobe-fonts/source-code-pro
+
+```
+brew tap caskroom/fonts && brew cask install font-source-code-pro
+```
+
 ### hyperzsh theme prompt 수정하기
 
 - .oh-my-zsh/custom/themes/hyperzsh.zsh-theme

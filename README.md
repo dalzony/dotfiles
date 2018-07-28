@@ -11,6 +11,23 @@ ln -s dotfiles/zshrc .zshrc
 
 - emacs에서 `SPC` 대신 `M-m`
 
+### paredit mode 에서 paredit-forward-slurp-sexp 단축키가 동작하지 않을 때
+
+<img src=https://user-images.githubusercontent.com/562341/43353230-db6a334c-926d-11e8-8cf8-8a34ebd1c435.png">
+
+- 설정은 잘 되어 있는 것 같은데 `Ctrl+->`가 안먹을 때가 있다.
+- Mac OSX 를 사용하고 있다면 Mission Control의 단축키가 보통 이것으로 설정 되어있기 때문
+- Preferences > Keyboard > Shortcuts > Mission Control 에서 다음 설정을 해제
+<img src="https://user-images.githubusercontent.com/562341/43353231-e02a7770-926d-11e8-9a71-5654044ff4eb.png">
+
+### font
+
+- https://github.com/adobe-fonts/source-code-pro
+
+```
+brew tap caskroom/fonts && brew cask install font-source-code-pro
+```
+
 ## zsh - theme(hyperzsh)
 
 ```
@@ -21,14 +38,6 @@ wget -O $ZSH_CUSTOM/themes/hyperzsh.zsh-theme https://raw.githubusercontent.com/
 vim ~/.zshrc
 Set ZSH_THEME="current_theme" to ZSH_THEME="hyperzsh"
 
-```
-
-## font
-
-- https://github.com/adobe-fonts/source-code-pro
-
-```
-brew tap caskroom/fonts && brew cask install font-source-code-pro
 ```
 
 ### hyperzsh theme prompt 수정하기

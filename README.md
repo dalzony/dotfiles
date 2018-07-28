@@ -13,13 +13,13 @@ ln -s dotfiles/zshrc .zshrc
 
 ### paredit mode 에서 paredit-forward-slurp-sexp 단축키가 동작하지 않을 때
 
-![](https://user-images.githubusercontent.com/562341/43353230-db6a334c-926d-11e8-8cf8-8a34ebd1c435.png | width=100)
+<img src="https://user-images.githubusercontent.com/562341/43353230-db6a334c-926d-11e8-8cf8-8a34ebd1c435.png" width="40%">
 
 - 설정은 잘 되어 있는 것 같은데 `Ctrl+->`가 안먹을 때가 있다.
 - Mac OSX 를 사용하고 있다면 Mission Control의 단축키가 보통 이것으로 설정 되어있기 때문
 - Preferences > Keyboard > Shortcuts > Mission Control 에서 다음 설정을 해제
 
-![](https://user-images.githubusercontent.com/562341/43353231-e02a7770-926d-11e8-9a71-5654044ff4eb.png | width=100)
+<img src="user-images.githubusercontent.com/562341/43353231-e02a7770-926d-11e8-9a71-5654044ff4eb.png" width="40%">
 
 ### font
 

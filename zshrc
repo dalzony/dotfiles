@@ -98,3 +98,6 @@ source $ZSH/oh-my-zsh.sh
 
 # my go fuction load
 # source $HOME/.my_zsh/go.sh
+
+# wget SSL
+export PATH="/usr/local/opt/openssl/bin:$PATH"

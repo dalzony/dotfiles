@@ -43,8 +43,9 @@ Set ZSH_THEME="current_theme" to ZSH_THEME="hyperzsh"
 - 다음부분을 추가해서 `PROMPT`를 대체
 
 ```
-PROMPT='$(_user_host)$(_python_venv)%{$fg[cyan]%}%c $(git_prompt_info)%{$reset_color%}$(git_prompt_short_sha)%{$fg[magenta]%}$(_git_time_since_commit)$(git_prompt_status)${_return_status}➜ '
+PROMPT='$(_python_venv)%{$fg[cyan]%}%c $(git_prompt_info)%{$reset_color%}%{$fg[magenta]%}$(_git_time_since_commit)$(git_prompt_status)${_return_status}➜ '
 ```
+
 - _user_host() 함수 부분을 수정할 수 있다.
 - prompt 표현법은 다음 링크에서 확인 가능 
 - http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html

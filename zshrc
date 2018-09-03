@@ -97,4 +97,4 @@ source $ZSH/oh-my-zsh.sh
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 # my go fuction load
-source $HOME/.my_zsh/go.sh
+# source $HOME/.my_zsh/go.sh

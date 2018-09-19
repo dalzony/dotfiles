@@ -101,3 +101,10 @@ source $ZSH/oh-my-zsh.sh
 
 # wget SSL
 export PATH="/usr/local/opt/openssl/bin:$PATH"
+
+# rbenv (ruby)
+eval "$(rbenv init -)"
+
+# kerberos
+export PATH="/usr/local/opt/krb5/bin:$PATH"
+export PATH="/usr/local/opt/krb5/sbin:$PATH"

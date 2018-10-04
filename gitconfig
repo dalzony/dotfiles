@@ -1,0 +1,10 @@
+[alias]
+	co = checkout
+	br = branch
+	st = status
+	cm = commit -m
+
+[includeIf "gitdir:~/repo/"]
+	path=.gitconfig-my
+[includeIf "gitdir:~/work/"]
+	path=.gitconfig-work

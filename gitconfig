@@ -8,3 +8,7 @@
 	path=.gitconfig-my
 [includeIf "gitdir:~/work/"]
 	path=.gitconfig-work
+
+# [user]
+# name = {name}
+# email = {email}
